@@ -1,0 +1,4 @@
+{
+    "welcomeTo": "Selamat datang ke {{item}}",
+    "visit": "Sila lawat <a href=\"https://kit.svelte.dev\">kit.svelte.dev</a> untuk dokumentasi"
+}

@@ -7,7 +7,7 @@ export const load: LayoutLoad = async ({ url }) => {
 	const { pathname } = url;
 
 	let defaultLocale = 'en';
-	if (browser) {
+	if (browser && cookie.parse(document.cookie).language) {
 		defaultLocale = cookie.parse(document.cookie).language;
 	}
 

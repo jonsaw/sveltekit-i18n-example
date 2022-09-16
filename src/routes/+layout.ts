@@ -1,12 +1,15 @@
 import { browser } from '$app/environment';
 import { loadTranslations, locale } from '$lib/translations';
-import { getDocumentCookieObject } from '$lib/utils/cookies';
+import * as cookie from 'cookie';
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ url }) => {
 	const { pathname } = url;
 
-	let defaultLocale = (browser ? getDocumentCookieObject()['language'] : '') || 'en';
+	let defaultLocale = 'en';
+	if (browser) {
+		defaultLocale = cookie.parse(document.cookie).language;
+	}
 
 	const initLocale = locale.get() || defaultLocale;
 
